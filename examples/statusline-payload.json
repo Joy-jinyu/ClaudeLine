@@ -1,0 +1,45 @@
+{
+  "session_id": "bc420795-9e61-4e3f-bca8-415d51f57e12",
+  "transcript_path": "/Users/joy/.claude/projects/-Users-joy-workspace-spare-agent-skills-desktop/bc420795-9e61-4e3f-bca8-415d51f57e12.jsonl",
+  "cwd": "/Users/joy/workspace/spare/agent-skills-desktop",
+  "model": {
+    "id": "claude-sonnet-4-6",
+    "display_name": "Sonnet 4.6"
+  },
+  "workspace": {
+    "current_dir": "/Users/joy/workspace/spare/agent-skills-desktop",
+    "project_dir": "/Users/joy/workspace/spare/agent-skills-desktop",
+    "added_dirs": []
+  },
+  "version": "2.1.81",
+  "output_style": {
+    "name": "default"
+  },
+  "cost": {
+    "total_cost_usd": 23.82139315000001
+  },
+  "context_window": {
+    "total_input_tokens": 34800,
+    "total_output_tokens": 272063,
+    "context_window_size": 200000,
+    "current_usage": {
+      "input_tokens": 1,
+      "output_tokens": 77,
+      "cache_creation_input_tokens": 118,
+      "cache_read_input_tokens": 135628
+    },
+    "used_percentage": 68,
+    "remaining_percentage": 32
+  },
+  "rate_limits": {
+    "five_hour": {
+      "used_percentage": 98
+    },
+    "seven_day": {
+      "used_percentage": 3
+    }
+  },
+  "vim": {
+    "mode": "INSERT"
+  }
+}
