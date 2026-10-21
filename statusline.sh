@@ -178,10 +178,18 @@ if [ -n "$SESSION_TOKENS" ] && [ "${SESSION_TOKENS:-0}" -gt 0 ] 2>/dev/null; the
 fi
 
 RATE_5H="$(json_get '.rate_limits.five_hour.used_percentage')"
+RATE_5H_RESETS_AT="$(json_get '.rate_limits.five_hour.resets_at')"
 RATE_7D="$(json_get '.rate_limits.seven_day.used_percentage')"
+RATE_5H_RESET=""
+if [ -n "$RATE_5H_RESETS_AT" ]; then
+  # resets_at 是 Unix 秒；macOS 用 date -r，GNU 用 date -d @
+  RATE_5H_RESET="$(date -r "$RATE_5H_RESETS_AT" +%H:%M 2>/dev/null || date -d "@$RATE_5H_RESETS_AT" +%H:%M 2>/dev/null || true)"
+fi
 RATE_SEGMENT=""
 if [ -n "$RATE_5H" ] || [ -n "$RATE_7D" ]; then
-  RATE_SEGMENT="5h:${RATE_5H:-?}% 7d:${RATE_7D:-?}%"
+  RATE_SEGMENT="5h:${RATE_5H:-?}%"
+  [ -n "$RATE_5H_RESET" ] && RATE_SEGMENT="${RATE_SEGMENT}(↻${RATE_5H_RESET})"
+  RATE_SEGMENT="${RATE_SEGMENT} 7d:${RATE_7D:-?}%"
 fi
 
 VIM_MODE="$(json_get '.vim.mode')"

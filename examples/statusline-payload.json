@@ -33,7 +33,8 @@
   },
   "rate_limits": {
     "five_hour": {
-      "used_percentage": 98
+      "used_percentage": 98,
+      "resets_at": 1774000000
     },
     "seven_day": {
       "used_percentage": 3
